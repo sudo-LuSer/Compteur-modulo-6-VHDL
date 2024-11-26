@@ -12,21 +12,22 @@ end entity;
 
 architecture arch of modulo_6 is 
 
-signal cmp : unsigned(3 downto 0) := load; 
+signal cmp : unsigned(3 downto 0); 
 
 begin  
+
 
 process (clk , rst)
 
 begin
 
-if(enable = '1')then
 
 	if(rst = '1')then 
 	
 		cmp <= "0000"; 
 
 	elsif(clk ='1' and clk'event)then 
+		if(enable = '1')then
 
 		if (UP_DOWN = '1')then 
 		
@@ -56,9 +57,9 @@ if(enable = '1')then
 		
 		end if; 
 	
-	end if;
+		end if;
 
-end if; 
+	end if; 
 
 end process; 
 
